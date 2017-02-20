@@ -1,0 +1,20 @@
+<h1 class="greeting">Welcome <%= @user.username %></h1>
+
+Registry Name: <%= @user.name %><br>
+<% if current_user.role == 3 %>
+  Username: Admin <%= @user.username %>
+<% else %>
+  Username: <%= @user.username %><br>
+<% end %>
+
+<%#= #need personal pokedex %>
+<%#= #need region %>
+
+<%= link_to "Trade Pokemon" %><br>
+<% if current_user %>
+  <%= link_to "Log Out", logout_path  %>
+<% end %>
+<% if current_admin? %>
+  <p>Administrator</p>
+  <%= link_to "Add a Pokemon", new_pokemon_path %><br>
+<% end %>
