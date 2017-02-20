@@ -5,7 +5,7 @@ RSpec.feature 'executive page visitation' do
     scenario 'an executive will see create and delete admin' do
 
       visit executive_path
-
+      save_and_open_page
       expect(current_path).to eq(executive_path)
       expect(page).to have_content("Executive Page")
 
@@ -35,7 +35,7 @@ RSpec.feature 'executive page visitation' do
       fill_in "user[confirmation_password]", with: "password"
       click_on "Create Admin"
 
-
+      save_and_open_page
       expect(current_path).to eq(user_path(User.last.id))
       expect(page).to have_content("Brandon")
       expect(page).to have_content("Admin Randall")
